@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "description": "FP.MsRmq.Connecting Console Application",
+  "authors": [ "frank" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "EasyNetQ": "0.55.0.425"
+  },
+
+  "commands": {
+    "FP.MsRmq.Connecting": "Connecting"
+  },
+
+  "frameworks": {
+    "dnx451": {
+
+
+    }
+  }
+}
