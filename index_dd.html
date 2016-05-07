@@ -361,13 +361,13 @@ Serialisierung, Fehlerbehandlung ... <span class="fragment">fehlt alles noch</sp
 using System;
 using EasyNetQ;
 
-namepace FP.Spartakiade2016.Connecting
+namepace FP.MsRmq.Connecting
 {
     public class Programm
     {
         public static void Main(string[] args)
         {
-            var myBus = RabbitHutch.CreateBus("host=myRabbit");
+            var myBus = RabbitHutch.CreateBus("host=myRabbitMQ");
         }
     }
 }
@@ -517,49 +517,6 @@ myBus.Send("MyMessageQueue", new MyClassB {});
                      <h2>Weblogger</h2>
                      <img src="images/weblogger.svg" style="border:0px;width:700px" alt="Übersicht für Bespiel Weblogger">
                  </section>
-                 <section>
-                     <h3>Docker-Build</h3>
-                       <pre>
-                            <code data-trim contenteditable>
-                                $ docker run -it --rm --name project-build 
---volumes-from project-data
- -v /var/run/docker.sock:/var/run/docker.sock 
- fpommerening/spartakiade2016:project-build
-                            </code>
-                        </pre>
-                        <pre>
-                            <code data-trim contenteditable>
-                                $ ./logging-web.sh
-$ ./logging-caller.sh
-$ ./logging-console.sh
-                            </code>
-                        </pre>
-                </section>
-                <section>
-                    <h3>Docker-Compose</h3>
-                       <pre>
-                            <code data-trim contenteditable>
-                                $ docker run -it --rm --name project-compose 
---volumes-from project-data
- -v /var/run/docker.sock:/var/run/docker.sock 
- fpommerening/spartakiade2016:project-compose
-                            </code>
-                        </pre>
-                        <pre>
-                            <code data-trim contenteditable>
-                               $ ./weblogger.sh run loggingcaller
-$ ./weblogger.sh rm
-                            </code>
-                        </pre>
-                         <pre>
-                            <code data-trim contenteditable>
-$ docker run --it --rm --name logconsole 
---link weblogger_MyRabbitMQ_1:MyRabbitMQ 
-fpommerening/spartakiade2016:logging-console
-                            </code>
-                        </pre>
-                    
-                </section>
              </section>
              
              <section>
@@ -675,54 +632,6 @@ fpommerening/spartakiade2016:logging-console
                         <li>DTO in JSON umgewandelt</li>
                         <li>Nachricht per HTTP Post an Empfänger versenden</li>
                     </ul>
-                </section>
-                <section>
-                    <h3>Infrastuktur</h3>
-                    <pre>
-                            <code data-trim contenteditable>
-                                $ docker run --name postgresql -p 5432:5432 -d 
-fpommerening/spartakiade2016:process-data
-                                
-$docker run --name=phppgadmin 
-  --env=VIRTUAL_HOST=phppgadmin.process 
-  --link=postgresql:postgresql -p 8888:80 -d maxexcloo/phppgadmin
- 
-                            </code>
-                        </pre>
-                </section>
-                  <section>
-                     <h3>Docker-Build</h3>
-                       <pre>
-                            <code data-trim contenteditable>
-                                $ docker run -it --rm --name project-build 
---volumes-from project-data
- -v /var/run/docker.sock:/var/run/docker.sock 
- fpommerening/spartakiade2016:project-build
-                            </code>
-                        </pre>
-                        <pre>
-                            <code data-trim contenteditable>
-                                $ ./process-webbroker.sh
-$ ./process-processes.sh
-                            </code>
-                        </pre>
-                </section>
-                <section>
-                    <h3>Docker-Compose</h3>
-                     <pre>
-                            <code data-trim contenteditable>
-                                $ docker run -it --rm --name project-compose 
---volumes-from project-data
- -v /var/run/docker.sock:/var/run/docker.sock 
- fpommerening/spartakiade2016:project-compose
-                            </code>
-                        </pre>
-                        <pre>
-                            <code data-trim contenteditable>
-                                $ ./processchain.sh up
-$ ./processchain.sh rm
-                            </code>
-                        </pre>
                 </section>
              </section>
              <section>
