@@ -13,8 +13,7 @@ namespace FP.MsRMQ.Advanced.ChangeLogging
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ",
-                    c => c.Register<IEasyNetQLogger, Log4NetLogger>());
+              
                 Console.WriteLine("Verbindung wurde aufgebaut: {0}", myBus.IsConnected);
             }
             catch (Exception ex)

@@ -5,32 +5,11 @@ using log4net;
 
 namespace FP.MsRMQ.Advanced.ChangeLogging
 {
-    public class Log4NetLogger : IEasyNetQLogger
+    public class Log4NetLogger
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(RabbitBus));
 
-        public void DebugWrite(string format, params object[] args)
-        {
-            var message = SafeFormat(format, args);
-            log.Debug(message);
-        }
-
-        public void InfoWrite(string format, params object[] args)
-        {
-            var message = SafeFormat(format, args);
-            log.Info(message);
-        }
-
-        public void ErrorWrite(string format, params object[] args)
-        {
-            var message = SafeFormat(format, args);
-            log.Error(message);
-        }
-
-        public void ErrorWrite(Exception exception)
-        {
-            log.Error(exception);
-        }
+      
 
         private string SafeFormat(string format, object[] args)
         {
