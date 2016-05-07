@@ -12,9 +12,6 @@ namespace FP.MsRmq.Basics.RequestResponse
             {
                 myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
 
-                myBus.Respond<MyRequest, MyResponse>(req =>
-                 new MyResponse {Sum = req.Number1 + req.Number2});
-
                 Console.Write("Please enter first number:");
                 var number1Text = Console.ReadLine();
                 Console.Write("Please enter second number:");
@@ -24,10 +21,6 @@ namespace FP.MsRmq.Basics.RequestResponse
                 if (int.TryParse(number1Text, out number1) && int.TryParse(number2Text, out number2))
                 {
                     var myrequest = new MyRequest {Number1 = number1, Number2 = number2};
-
-                    var result = myBus.Request<MyRequest, MyResponse>(myrequest);
-
-                    Console.WriteLine("{0} + {1} = {2}", number1, number2, result.Sum);
                 }
             }
             catch (Exception ex)

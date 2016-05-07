@@ -11,21 +11,7 @@ namespace FP.MsRmq.TopicBasedRouting
             try
             {
                 myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
-                myBus.Subscribe<MyMessage>("BlueLine", msg =>
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Say hallo to {0}", msg.Name);
-                    Console.ForegroundColor = ConsoleColor.White;
-                },
-                x=>x.WithTopic("BLUE"));
-
-                myBus.Subscribe<MyMessage>("RedLine", msg =>
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Say hallo to {0}", msg.Name);
-                    Console.ForegroundColor = ConsoleColor.White;
-                },
-                x => x.WithTopic("RED"));
+              
                 string input = string.Empty;
 
                 do
@@ -37,7 +23,7 @@ namespace FP.MsRmq.TopicBasedRouting
 
                     if (!string.IsNullOrEmpty(input))
                     {
-                        myBus.Publish(new MyMessage {Name = input}, color.ToUpper());
+                        
                     }
                     System.Threading.Thread.Sleep(2000);
                 } while (!string.IsNullOrEmpty(input));
