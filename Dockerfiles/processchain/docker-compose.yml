@@ -1,0 +1,68 @@
+MyRabbitMQ:
+  image: rabbitmq:3-management
+  ports:
+    - 5672:7672
+    - 15672:15672
+
+webbroker:
+  image: fpommerening/MsRmq:process-webbroker
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  hostname: processServer
+
+authorization:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  command: dnx run authorization
+
+messagerouter:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  command: dnx run messagerouter
+
+invoicrouter:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  command: dnx run invoicrouter
+
+customerrouter:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  command: dnx run customerrouter
+
+bill:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  command: dnx run bill
+
+reversal:
+ image: fpommerening/MsRmq:process-processes
+ links:
+    - MyRabbitMQ:MyRabbitMQ
+ command: dnx run reversal
+
+registration:
+ image: fpommerening/MsRmq:process-processes
+ links:
+    - MyRabbitMQ:MyRabbitMQ
+ command: dnx run registration
+
+marketpartner:
+  image: fpommerening/MsRmq:process-marketpartner
+  links:
+    - webbroker:processServer
+  ports:
+    - 12088:12088
+  hostname: marketpartner
+
+messagedispatcher:
+  image: fpommerening/MsRmq:process-processes
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+    - marketpartner:marketpartner
+  command: dnx run messagedispatcher
