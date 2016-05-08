@@ -7,37 +7,33 @@ namespace FP.MsRmq.Weblogger
 {
     public class LoggingRepository
     {
-        public Task SendErrorLog(string remoteHost, DateTime timestamp, string instanceHost)
-        {
-            var logItem = new LogItem
-            {
-                Timestamp = timestamp,
-                RemoteHost = remoteHost,
-                InstanceHost = instanceHost,
-                State = RequestState.Error
-            };
+        //public Task SendErrorLog(string remoteHost, DateTime timestamp, string instanceHost)
+        //{
+        //    var logItem = new LogItem
+        //    {
+        //        Timestamp = timestamp,
+        //        RemoteHost = remoteHost,
+        //        InstanceHost = instanceHost,
+        //        State = RequestState.Error
+        //    };
 
-            return GetOrCreateBus().PublishAsync(logItem);
-        }
+        //    return 
+        //}
 
-        public Task SendLog(Guid sessionId, string remoteHost, DateTime timestamp, string instanceHost)
-        {
-            var logItem = new LogItem
-            {
-                Timestamp = timestamp,
-                SessionId = sessionId,
-                RemoteHost = remoteHost,
-                InstanceHost = instanceHost,
-                State = RequestState.OK
-            };
+        //public Task SendLog(Guid sessionId, string remoteHost, DateTime timestamp, string instanceHost)
+        //{
+        //    var logItem = new LogItem
+        //    {
+        //        Timestamp = timestamp,
+        //        SessionId = sessionId,
+        //        RemoteHost = remoteHost,
+        //        InstanceHost = instanceHost,
+        //        State = RequestState.OK
+        //    };
 
-            return GetOrCreateBus().PublishAsync(logItem);
-        }
+            
+        //}
 
-        private IBus bus = null;
-        private IBus GetOrCreateBus()
-        {
-            return bus ?? (bus = RabbitHutch.CreateBus("host=MyRabbitMQ"));
-        }
+      
     }
 }

@@ -12,12 +12,7 @@ namespace FP.MsRmq.Logging.ConsoleListener
 
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
-                myBus.Subscribe<LogItem>("ConsoleLogger", log =>
-                {
-                    Console.WriteLine("{0:HH:mm:ss.fff} [{1}] {2} -> {3} {4}",
-                        log.Timestamp, log.SessionId, log.RemoteHost, log.InstanceHost, log.State);
-                });
+              
                 Console.WriteLine("Logger gestartet...");
                 Console.ReadLine();
             }
