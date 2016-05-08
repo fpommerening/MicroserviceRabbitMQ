@@ -1,0 +1,43 @@
+MyRabbitMQ:
+  image: rabbitmq:3-management
+  ports:
+    - 5672:7672
+    - 15672:15672
+
+weblogger1:
+  image: fpommerening/msrmq:logging-web
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  hostname: logger1
+
+weblogger2:
+  image: fpommerening/msrmq:logging-web
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  hostname: logger2
+
+weblogger3:
+  image: fpommerening/msrmq:logging-web
+  links:
+    - MyRabbitMQ:MyRabbitMQ
+  hostname: logger3
+
+loadbalancer:
+  image: fpommerening/msrmq:logging-loadbalancer
+  links:
+    - weblogger1:weblogger1
+    - weblogger2:weblogger2
+    - weblogger3:weblogger3
+  ports:
+    - 80:80
+#logconsole:
+#  image: fpommerening/spartakiade2016:logging-console
+#  links: 
+#    - MyRabbitMQ:MyRabbitMQ
+#  hostname: logconsole
+
+loggingcaller:
+  image: fpommerening/msrmq:logging-caller
+  links: 
+    - loadbalancer:loadbalancer
+  hostname: loggingcaller
