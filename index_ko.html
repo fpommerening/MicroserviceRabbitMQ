@@ -494,7 +494,7 @@ var result = await myBus.RequestAsync&lt;MyClass1,MyClass2&gt;(req);
                         <pre><code class="cs">
 myBus.Receive("MyMessageQueue", x => x
     .Add&lt;MyClassA&gt;(DoSomethingWithA)
-    .Add&lt;MyClassB&gt;(DoSomethingWithA);
+    .Add&lt;MyClassB&gt;(DoSomethingWithBs);
                     </code></pre>
                     Request
                         <pre><code class="cs">
