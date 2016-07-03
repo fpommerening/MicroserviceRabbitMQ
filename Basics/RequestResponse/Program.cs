@@ -10,7 +10,7 @@ namespace FP.MsRmq.Basics.RequestResponse
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
 
                 Console.Write("Please enter first number:");
                 var number1Text = Console.ReadLine();

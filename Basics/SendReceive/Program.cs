@@ -11,7 +11,7 @@ namespace FP.MsRmq.Basics.SendReceive
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
                 
 
                 Console.Write("Please enter content for A:");

@@ -10,7 +10,7 @@ namespace FP.MsRmq.TopicBasedRouting
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
               
                 string input = string.Empty;
 
