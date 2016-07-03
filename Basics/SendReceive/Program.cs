@@ -11,7 +11,7 @@ namespace FP.MsRmq.Basics.SendReceive
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
                 myBus.Receive("MyMessageQueue", x => x
                     .Add<MyMessageA>(a => { Console.WriteLine("Recive MyMessageA: {0}", a.Content); })
                     .Add<MyMessageB>(b => { Console.WriteLine("Recive MyMessageB: {0}", b.Content); }));
@@ -19,7 +19,7 @@ namespace FP.MsRmq.Basics.SendReceive
 
                 Console.Write("Please enter content for A:");
                 var msgA = Console.ReadLine();
-                Console.Write("Please enter  content for B:");
+                Console.Write("Please enter content for B:");
                 var msgB = Console.ReadLine();
 
                 myBus.Send("MyMessageQueue", new MyMessageA {Content = msgA});

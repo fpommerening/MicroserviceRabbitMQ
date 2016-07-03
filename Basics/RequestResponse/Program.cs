@@ -10,7 +10,7 @@ namespace FP.MsRmq.Basics.RequestResponse
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
 
                 myBus.Respond<MyRequest, MyResponse>(req =>
                  new MyResponse {Sum = req.Number1 + req.Number2});

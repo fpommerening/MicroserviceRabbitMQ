@@ -10,7 +10,7 @@ namespace FP.MsRmq.Basics.Connecting
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=MyRabbitMQ");
+                myBus = RabbitHutch.CreateBus("host=docker");
                 Console.WriteLine("Verbindung wurde aufgebaut: {0}", myBus.IsConnected);
             }
             catch (Exception ex)
