@@ -37,10 +37,10 @@
         <div class="slides">
             <section>
                 <h1>.NET Microservices mit RabbitMQ</h1>
-                <h2>Usergroup Leipzig</h2>
-                <h2>04.07.2016</h2>
+                <h2>Usergroup Berlin-Brandenburg</h2>
+                <h2>09.08.2016</h2>
                 
-                <a href="https://goo.gl/gDE8Oo"><img src="images/linkl.svg"></a>
+                <a href="https://goo.gl/gDE8Oo"><img src="images/linkb.svg"></a>
             </section>
             <section>
                 <section>
@@ -498,7 +498,7 @@ var result = await myBus.RequestAsync&lt;MyClass1,MyClass2&gt;(req);
                         <pre><code class="cs">
 myBus.Receive("MyMessageQueue", x => x
     .Add&lt;MyClassA&gt;(DoSomethingWithA)
-    .Add&lt;MyClassB&gt;(DoSomethingWithA);
+    .Add&lt;MyClassB&gt;(DoSomethingWithB);
                     </code></pre>
                     Request
                         <pre><code class="cs">
@@ -714,7 +714,14 @@ myBus.Send("MyMessageQueue", new MyClassB {});
             history: true,
             center: true,
 
-            transition: 'slide',
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            
+             multiplex: {
+                 // Example values. To generate your own, see the socket.io server instructions.
+                 secret: null, // null so the clients do not have control of the master presentation
+                 id: 'ef31759eb8701ba6', // id, obtained from socket.io server
+                url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+            },
 
             // Optional reveal.js plugins
             dependencies: [
