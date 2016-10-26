@@ -1,4 +1,4 @@
-﻿namespace FP.MsRmq.TopicBasedRouting
+﻿namespace FP.MsRmq.Basics.TopicBasedRouting
 {
     public class MyMessage
     {

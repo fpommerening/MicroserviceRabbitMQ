@@ -1,6 +1,6 @@
 ﻿namespace FP.MsRmq.Basics.PublishSubscribe
 {
-    public interface IVertrag
+    interface IVertrag
     {
         string Vertragsnummer { get; set; }
     }

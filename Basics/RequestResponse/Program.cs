@@ -10,10 +10,10 @@ namespace FP.MsRmq.Basics.RequestResponse
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=docker");
+                myBus = RabbitHutch.CreateBus("host=localhost");
 
                 myBus.Respond<MyRequest, MyResponse>(req =>
-                 new MyResponse {Sum = req.Number1 + req.Number2});
+                 new MyResponse { Sum = req.Number1 + req.Number2 });
 
                 Console.Write("Please enter first number:");
                 var number1Text = Console.ReadLine();
@@ -23,7 +23,7 @@ namespace FP.MsRmq.Basics.RequestResponse
                 int number2;
                 if (int.TryParse(number1Text, out number1) && int.TryParse(number2Text, out number2))
                 {
-                    var myrequest = new MyRequest {Number1 = number1, Number2 = number2};
+                    var myrequest = new MyRequest { Number1 = number1, Number2 = number2 };
 
                     var result = myBus.Request<MyRequest, MyResponse>(myrequest);
 

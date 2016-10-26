@@ -10,7 +10,7 @@ namespace FP.MsRmq.Basics.PublishSubscribe
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=docker");
+                myBus = RabbitHutch.CreateBus("host=localhost");
                 //SimpleSubscription(myBus);
                 PolymorphicSubscription(myBus);
             }
@@ -32,8 +32,8 @@ namespace FP.MsRmq.Basics.PublishSubscribe
                 Console.WriteLine("Vertrag {0} wurde abgeschlossen", vertrag.Vertragsnummer);
             });
 
-            var stromVertrag = new StromVertrag {Vertragsnummer = "ST 0042", Zählernummer = "94184613"};
-            var handyVertrag = new HandyVertrag {Rufnummer = "0171 123456789", Vertragsnummer = "MD 00151"};
+            var stromVertrag = new StromVertrag { Vertragsnummer = "ST 0042", Zählernummer = "94184613" };
+            var handyVertrag = new HandyVertrag { Rufnummer = "0171 123456789", Vertragsnummer = "MD 00151" };
 
             myBus.Publish<IVertrag>(stromVertrag);
             myBus.Publish<IVertrag>(handyVertrag);
@@ -53,8 +53,8 @@ namespace FP.MsRmq.Basics.PublishSubscribe
 
                 if (!string.IsNullOrEmpty(input))
                 {
-                     myBus.Publish<MyMessage>(new MyMessage {Name = input});
-            
+                    myBus.Publish<MyMessage>(new MyMessage { Name = input });
+
                 }
                 System.Threading.Thread.Sleep(2000);
             } while (!string.IsNullOrEmpty(input));
