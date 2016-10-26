@@ -1,14 +1,13 @@
 ﻿using System;
 using Nancy;
 
-namespace FP.MsRmq.Weblogger
+namespace FP.MsRmq.Logging.WebLogger
 {
     public class ServiceModule : NancyModule
     {
         public ServiceModule(LoggingRepository loggingRepository)
         {
-            Get["/Service/{sessionId}", true] = async (parameter, ct)
-                =>
+            Get("/Service/{sessionId}", async (parameter, ct) =>
             {
                 Guid sessionId;
                 var timestamp = DateTime.UtcNow;
@@ -16,17 +15,14 @@ namespace FP.MsRmq.Weblogger
 
                 if (!Guid.TryParse(parameter.sessionId, out sessionId))
                 {
-                    await loggingRepository.SendErrorLog(remoteHost, timestamp,
-                        Environment.MachineName);
+                    await loggingRepository.SendErrorLog(remoteHost, timestamp, Environment.MachineName);
                     return HttpStatusCode.BadRequest;
                 }
 
-                await loggingRepository.SendLog(sessionId, remoteHost, timestamp,
-                    Environment.MachineName);
+                await loggingRepository.SendLog(sessionId, remoteHost, timestamp, Environment.MachineName);
 
-                return Response.AsJson(new {Session = sessionId, Timestamp = timestamp, Hostname = Environment.MachineName});
-            };
-
+                return Response.AsJson(new { Session = sessionId, Timestamp = timestamp, Hostname = Environment.MachineName });
+            });
         }
     }
 }

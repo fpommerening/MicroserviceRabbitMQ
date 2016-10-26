@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>02eae2f8-cdb7-498e-8bf8-7485a6b8a12d</ProjectGuid>
-    <RootNamespace>FP.MsRmq.Logging.ConsoleListener</RootNamespace>
+    <ProjectGuid>e4d0da3e-5ce5-4fbb-908f-a52af1f6386d</ProjectGuid>
+    <RootNamespace>FP.MsRmq.Logging.Contracts</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

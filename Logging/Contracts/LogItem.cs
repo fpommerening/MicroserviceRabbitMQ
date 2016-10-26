@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FP.MsRmq.Logging.Contacts
+namespace FP.MsRmq.Logging.Contracts
 {
     public class LogItem
     {

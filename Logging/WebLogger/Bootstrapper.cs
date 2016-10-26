@@ -2,7 +2,7 @@
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
 
-namespace FP.MsRmq.Weblogger
+namespace FP.MsRmq.Logging.WebLogger
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using EasyNetQ;
-using FP.MsRmq.Logging.Contacts;
+using FP.MsRmq.Logging.Contracts;
 
-namespace FP.MsRmq.Weblogger
+namespace FP.MsRmq.Logging.WebLogger
 {
     public class LoggingRepository
     {
@@ -37,7 +37,7 @@ namespace FP.MsRmq.Weblogger
         private IBus bus = null;
         private IBus GetOrCreateBus()
         {
-            return bus ?? (bus = RabbitHutch.CreateBus("host=MyRabbitMQ"));
+            return bus ?? (bus = RabbitHutch.CreateBus(EnvironmentVariable.GetValueOrDefault("ConnectingStringRabbitMQ", "host=localhost")));
         }
     }
 }

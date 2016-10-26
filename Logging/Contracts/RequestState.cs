@@ -1,4 +1,4 @@
-﻿namespace FP.MsRmq.Logging.Contacts
+﻿namespace FP.MsRmq.Logging.Contracts
 {
     public enum RequestState
     {

@@ -1,26 +1,21 @@
 {
   "version": "1.0.0-*",
-  "description": "FP.MsRmq.Logging.Console Console Application",
-  "authors": [ "frank.pommerening" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
-    "Contacts": "1.0.0-*",
-    "EasyNetQ": "0.58.0.433"
-  },
-
-  "commands": {
-    "FP.MsRmq.Logging.Console": "Console"
+    "Contracts": "1.0.0-*",
+    "EasyNetQ": "2.0.2-netcore0001",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0"
+    }
   },
 
   "frameworks": {
-    "dnx451": { }
-
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
   }
 }

@@ -1,22 +1,24 @@
 {
-    "version": "1.0.0-*",
-    "compilationOptions": {
-        "emitEntryPoint": true
-    },
-  "tooling": {
-    "defaultNamespace": "FP.MsRmq.Logging.WebLogger"
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
   },
   "dependencies": {
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Owin": "1.0.0-rc1-final",
-    "Nancy": "1.4.3",
-    "Contacts": "1.0.0-*",
-    "EasyNetQ": "0.58.0.433"
+    "EasyNetQ": "2.0.2-netcore0001",
+      "Microsoft.NETCore.App": {
+        "version": "1.0.1",
+        "type": "platform"
+      },
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.AspNetCore.Owin": "1.0.0",
+    "Nancy": "2.0.0-barneyrubble",
+    "Contracts": "1.0.0-*"
   },
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel --server.urls http://0.0.0.0:8080"
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
-    "frameworks": {
-        "dnx451": {}
-    }
+  "frameworks": {
+    "netcoreapp1.0": { }
+  }
 }

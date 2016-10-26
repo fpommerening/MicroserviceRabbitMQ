@@ -1,27 +1,19 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "FP.MsRmq.Logging.Caller Console Application",
-  "authors": [ "frank.pommerening" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
-
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
-  },
-
-  "commands": {
-    "FP.MsRmq.Logging.Caller": "Caller"
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    }
   },
 
   "frameworks": {
-    "dnx451": {
-      "dependencies": {
-        "System.Net.Http": "4.0.1-beta-23516"
-      }
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
     }
   }
 }

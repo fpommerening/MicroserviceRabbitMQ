@@ -1,12 +1,12 @@
-using Nancy;
+﻿using Nancy;
 
-namespace FP.MsRmq.Weblogger
+namespace FP.MsRmq.Logging.WebLogger
 {
     public class HomeModule : NancyModule
     {
         public HomeModule()
         {
-            Get["/"] = _ => "Hallo Spartakiade 2016";
+            Get("/", args => "Hello Developer Open Space 2016");
         }
     }
 }
