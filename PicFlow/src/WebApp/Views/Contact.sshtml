@@ -1,0 +1,28 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+
+ <div id="first-block">
+                <div class="line">
+                    <div class="margin-bottom">
+                        <div class="margin">
+                             <article class="s-12">
+                                <h1>
+                                    Frank Pommerening
+                                    <br />
+                                </h1>
+                                <h2>
+                                    <a href="mailto:frank@pommerening-online.de?subject=DevOpenSpace 2016">frank@pommerening-online.de</a>
+                                    <br />
+                                    <a href="http://twitter.com/fpommerening" target="_blank">Twitter</a>
+                                    <br />
+                                    <a href="https://www.xing.com/profile/Frank_Pommerening3" target="_blank">XING</a>
+                                </h2>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+@EndSection

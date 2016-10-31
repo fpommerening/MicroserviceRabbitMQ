@@ -1,0 +1,48 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+<div id="first-block">
+	<div class="line">
+		<div class="margin-bottom">
+			<div class="margin">
+				<form action="imagerequest" class="customform" method="post" enctype="multipart/form-data">
+					<div class="s-12"><h1>Neues Bild hinzufügen</h1></div>
+					<div class="line">
+						<div class="margin">
+							<div class="s-12 l-2"><label>Bild (*.png / *.jpg)</label></div>
+							<div class="s-12 l-4"><input name="file" title="Bild ..." type="file" /></div>
+							<div class="s-12 l-6">
+								<select name="eventoverlay">
+									<option value="dos">Developer Open Space</option>
+									<option value="sp">Spartakiade</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="s-12"><textarea placeholder="Nachricht" name="message" rows="5"></textarea></div>
+					<div class="line">
+						<div class="margin">
+							<div class="s-12 l-6">
+								<p><label>Auflösung:</label></p>
+									<select multiple="multiple" name="resolutions">
+										<option value="2">2 MPixel</option>
+										<option value="3">3 MPixel</option>
+										<option value="6">6 MPixel</option>
+										<option value="12">12 MPixel</option>
+									</select>
+							</div>	
+							<div class="s-12 l-6 right">
+								<input name="postimage" value="true" type="checkbox" /><label>Bild posten</label>
+							</div>
+						</div>
+					</div>
+					<div class="s-12 l-6 right">
+						<button type="submit">Absenden</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@EndSection

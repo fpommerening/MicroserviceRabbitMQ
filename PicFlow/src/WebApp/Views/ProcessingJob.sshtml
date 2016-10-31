@@ -1,0 +1,22 @@
+﻿<tr>
+<td>@Model.Timestamp</td>
+<td>@Model.Filename</td>
+<td>@Model.Message</td>
+<td>
+@If.CalcRes2
+	<a href="~/images/@Model.JobId/@Model.IdRes2" target="_blank">2Mpixel</a>
+@EndIf
+
+@If.CalcRes3
+	<a href="~/images/@Model.JobId/@Model.IdRes3" target="_blank">3Mpixel</a>
+@EndIf
+
+@If.CalcRes6
+	<a href="~/images/@Model.JobId/@Model.IdRes6" target="_blank">6Mpixel</a>
+@EndIf
+
+@If.CalcRes12
+	<a href="~/images/@Model.JobId/@Model.IdRes12" target="_blank">12Mpixel</a>
+@EndIf
+</td>
+</tr>

@@ -1,0 +1,96 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+
+ <div id="first-block">
+                <div class="line">
+                    <div class="margin-bottom">
+                            <div id="loginBox">
+            Benutzer <input type="text" id="Username" />
+            <br />
+            Passwort <input id="Password" type="password" />
+            <br />
+            Remember Me <input id="RememberMe" type="checkbox" value="True" />
+            <br />
+            <button id="submitButton">Login</button>
+
+			 
+        </div>
+		<div id="waitBox" style="display: none;width:150px;">
+			Bitte warten ...
+			<br/>
+			<img src="img/ajax-loader.gif"/>
+		</div>
+		 <script type="text/javascript">
+            $(document).ready(function () {
+                $("#submitButton").click(function () {
+
+                    $("#errorBox").hide();
+					$("#waitBox").hide();
+
+                    var authRequest = {
+                        username: $("#Username").val(),
+                        password: $("#Password").val(),
+                        rememberMe: $("#RememberMe").val()
+                    };
+
+					var waitresponse = function(response)
+					{
+						if (typeof response.apiKey !== "undefined")
+						{
+							 ApiToken.Set(response.username, response.apiKey, response.rememberMe);
+							 window.location = "/";
+						}
+						else
+						{
+							timeout = response.cycle * 1000;
+							setTimeout(function(){ waitonauth(response.waitKey, response.cycle); }, timeout);
+						}
+					}
+
+					var waitonauth = function(waitkey, cycle)
+					{
+						var waitRequest = {
+						waitkey: waitkey,
+						cycle : cycle
+						};
+
+						 $.ajax({
+                        type: 'POST',
+                        url: api.wait,
+                        data: waitRequest,
+                        success: waitresponse,
+                        error: error,
+                        dataType: "json"
+                    });
+					}
+
+					var authinit = function (response) {
+						$("#waitBox").show();
+						$("#loginBox").hide();
+						setTimeout(function(){ waitonauth(response.waitKey,1); }, 1000);
+					};
+
+
+                    var error = function () {
+						alert('FEHLER');
+                        $("#errorBox").show();
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: api.auth,
+                        data: authRequest,
+                        success: authinit,
+                        error: error,
+                        dataType: "json"
+                    });
+                });
+            });
+        </script>
+
+                    </div>
+                </div>
+            </div>
+
+@EndSection

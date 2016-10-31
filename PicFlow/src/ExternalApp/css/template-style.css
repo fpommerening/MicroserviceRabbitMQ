@@ -1,0 +1,38 @@
+#first-block {
+text-align:center;
+padding:3.5em 0;
+}
+footer {
+background:#fff;
+padding:3.5em 0;
+}
+
+/* sticky footer css */
+html {
+height: 100%;
+overflow: hidden;
+}
+ 
+body {
+height: 100%;
+overflow: scroll;
+}
+ 
+.with-sticky-footer {
+display: table;
+height: 100%;
+table-layout: fixed;
+width: 100%; 
+}
+ 
+.sticky-footer {
+display: table-row;
+height: 1px;
+} 
+
+
+@media screen and (max-width: 768px) {
+  .right {
+  float:none;
+  }
+}
