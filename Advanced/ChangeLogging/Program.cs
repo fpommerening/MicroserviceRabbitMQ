@@ -4,16 +4,16 @@ using EasyNetQ;
 
 namespace FP.MsRMQ.Advanced.ChangeLogging
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.xml"));
 
             IBus myBus = null;
             try
             {
-                myBus = RabbitHutch.CreateBus("host=docker",
+                myBus = RabbitHutch.CreateBus("host=localhost",
                     c => c.Register<IEasyNetQLogger, Log4NetLogger>());
                 Console.WriteLine("Verbindung wurde aufgebaut: {0}", myBus.IsConnected);
             }
