@@ -6,7 +6,7 @@ ENV Web_VERSION 1.0.0
 # COPY /app /home/
 
 RUN set -x \
-	&& wget -O /home/logging-web.7z "https://github.com/fpommerening/msrmq/releases/download/$Web_VERSION/logging-web.7z" \
+	&& wget -O /home/logging-web.7z "https://github.com/fpommerening/MicroserviceRabbitMQ/releases/download/$Web_VERSION/logging-web.7z" \
     && p7zip -d /home/logging-web.7z \
     && mv /logging-web/ /app/ \
 	&& apt-get purge -y --auto-remove ca-certificates wget p7zip
