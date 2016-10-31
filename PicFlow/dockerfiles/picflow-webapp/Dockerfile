@@ -1,7 +1,7 @@
 FROM fpommerening/msrmq:core-base
 MAINTAINER Frank Pommerening "frank@pommerening-online.de"
 ENV REFRESHED_AT 2016-10-31
-ENV Picflow_VERSION 0.1.1
+ENV Picflow_VERSION 1.0.0
 
 # COPY /app /home/
 
