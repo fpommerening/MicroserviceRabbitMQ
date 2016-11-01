@@ -14,7 +14,7 @@ namespace FP.MsRMQ.PicFlow.ExternalApp.Modules
             {
                 var apiUpload = this.Bind<ApiUpload>();
 
-                if (apiUpload.ApiKey.ToLower() != "UserGroupTour")
+                if (apiUpload.ApiKey.ToLower() != "usergrouptour")
                 {
                     return HttpStatusCode.Unauthorized;
                 }
