@@ -3,10 +3,10 @@ MAINTAINER Frank Pommerening "frank@pommerening-online.de"
 ENV REFRESHED_AT 2016-11-02
 ENV Caller_VERSION 1.0.2
 
- COPY /app /home/
+# COPY /app /home/
 
 RUN set -x \
-#	&& wget -O /home/logging-caller.7z "https://github.com/fpommerening/MicroserviceRabbitMQ/releases/download/$Caller_VERSION/logging-caller.7z" \
+	&& wget -O /home/logging-caller.7z "https://github.com/fpommerening/MicroserviceRabbitMQ/releases/download/$Caller_VERSION/logging-caller.7z" \
     && p7zip -d /home/logging-caller.7z \
     && mv /logging-caller/ /app/ \
 	&& apt-get purge -y --auto-remove ca-certificates wget p7zip
