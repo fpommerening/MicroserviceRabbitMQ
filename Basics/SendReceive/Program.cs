@@ -11,18 +11,11 @@ namespace FP.MsRmq.Basics.SendReceive
             try
             {
                 myBus = RabbitHutch.CreateBus("host=localhost");
-                myBus.Receive("MyMessageQueue", x => x
-                    .Add<MyMessageA>(a => { Console.WriteLine("Recive MyMessageA: {0}", a.Content); })
-                    .Add<MyMessageB>(b => { Console.WriteLine("Recive MyMessageB: {0}", b.Content); }));
-
 
                 Console.Write("Please enter content for A:");
                 var msgA = Console.ReadLine();
                 Console.Write("Please enter  content for B:");
                 var msgB = Console.ReadLine();
-
-                myBus.Send("MyMessageQueue", new MyMessageA { Content = msgA });
-                myBus.Send("MyMessageQueue", new MyMessageB { Content = msgB });
 
 
 
