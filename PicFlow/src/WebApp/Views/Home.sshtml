@@ -1,0 +1,33 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+
+ <div id="first-block">
+                <div class="line">
+                    <div class="margin-bottom">
+						<div class="s-12 m-6 l-4"></div>
+						<div class="s-12 m-6 l-4">@Model.Message </div>
+						<div class="s-12 m-6 l-4"></div>
+                          </div> 
+                </div>
+				<div class="line">
+<table>
+<thead>
+<tr>
+<th>Datum / Uhrzeit</th>
+<th>Dateiname</th>
+<th width="400">Nachricht</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+ @Partial['processingjobs', Model.Jobs];
+
+</tbody>
+</table>
+</div>
+
+
+            </div>
+
+@EndSection

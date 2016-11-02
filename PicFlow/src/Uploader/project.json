@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "EasyNetQ": "2.0.2-netcore0001",
+    "MongoDB.Driver": "2.3.0",
+    "Contracts": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

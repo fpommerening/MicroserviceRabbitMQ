@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true,
+    "copyToOutput": { "include": [ "Views", "js", "img", "css" ] }
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
+    "Microsoft.AspNetCore.Owin": "1.0.0",
+    "Nancy": "2.0.0-barneyrubble",
+    "MongoDB.Driver": "2.3.0",
+    "MongoDB.Bson": "2.3.0"
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {}
+  }
+
+}

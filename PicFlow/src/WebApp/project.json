@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true,
+    "copyToOutput": { "include": [ "Views", "js", "img", "css" ] }
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
+    "Microsoft.AspNetCore.Owin": "1.0.0",
+    "Nancy": "2.0.0-barneyrubble",
+    "EasyNetQ": "2.0.2-netcore0001",
+    "MongoDB.Driver": "2.3.0",
+    "MongoDB.Bson": "2.3.0",
+    "Nancy.Authentication.Stateless": "2.0.0-barneyrubble",
+    "System.Security.Cryptography.Algorithms": "4.2.0",
+    "Marten": "1.1.0",
+    "Contracts": "1.0.0-*"
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+      }
+    }
+  }
+
+}
