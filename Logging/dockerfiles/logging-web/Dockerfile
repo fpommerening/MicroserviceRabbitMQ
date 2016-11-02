@@ -1,7 +1,7 @@
 FROM fpommerening/msrmq:core-base
 MAINTAINER Frank Pommerening "frank@pommerening-online.de"
-ENV REFRESHED_AT 2016-10-31
-ENV Web_VERSION 1.0.0
+ENV REFRESHED_AT 2016-11-02
+ENV Web_VERSION 1.0.2
 
 # COPY /app /home/
 
