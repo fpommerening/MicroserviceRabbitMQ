@@ -91,7 +91,7 @@ Task("Compression")
 	{
 		var filename = project.Key.ToLower() + ".tar.gz";
 		var folder = dockerDir + Directory(project.Value.ToLower()) + Directory("app");
-		GZipCompress(publishDir, folder + File(filename), 9);
+		GZipCompress(publishDir + Directory(project.Key.ToLower()), folder + File(filename), 9);
 	}
     
 });
@@ -106,7 +106,7 @@ Task("DockerBuild")
 		var tag = "fpommerening/msrmq:" + project.Value;
 		var settings = new DockerBuildSettings
 		{
-			File = folder + File("Dockerfile"),
+			File = folder + File("Dockerfile.local"),
 			Tag = new [] { tag }
 		};
 		DockerBuild(settings, folder);

@@ -1,0 +1,13 @@
+FROM fpommerening/msrmq:core-base
+LABEL maintainer "frank@pommerening-online.de"
+ENV REFRESHED_AT 2017-05-05
+ENV Picflow_VERSION 2.0.0
+
+COPY /app /home/
+
+RUN set -x \
+    && mkdir /app/ \
+    && tar -xzf /home/externalapp.tar.gz -C /app/
+
+WORKDIR /app/
+ENTRYPOINT ["dotnet", "ExternalApp.dll"]
