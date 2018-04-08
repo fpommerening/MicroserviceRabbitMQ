@@ -2,7 +2,7 @@
 using EasyNetQ;
 using FP.MsRmq.Logging.Contracts;
 
-namespace FP.MsRmq.Logging.ConsoleListener
+namespace FP.MsRmq.Logging.Console
 {
     public class Program
     {
@@ -15,23 +15,23 @@ namespace FP.MsRmq.Logging.ConsoleListener
                 myBus = RabbitHutch.CreateBus(EnvironmentVariable.GetValueOrDefault("ConnectingStringRabbitMQ", "host=localhost"));
                 myBus.Subscribe<LogItem>("ConsoleLogger", log =>
                 {
-                    Console.WriteLine("{0:HH:mm:ss.fff} [{1}] {2} -> {3} {4}",
+                    System.Console.WriteLine("{0:HH:mm:ss.fff} [{1}] {2} -> {3} {4}",
                         log.Timestamp, log.SessionId, log.RemoteHost, log.InstanceHost, log.State);
                 });
-                Console.WriteLine("Logger gestartet...");
-                Console.ReadLine();
+                System.Console.WriteLine("Logger gestartet...");
+                System.Console.ReadLine();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Verbindung ist fehlgeschlagen");
-                Console.WriteLine(ex);
+                System.Console.WriteLine("Verbindung ist fehlgeschlagen");
+                System.Console.WriteLine(ex);
             }
             finally
             {
                 myBus?.Dispose();
             }
 
-            Console.WriteLine("Logger beendet...");
+            System.Console.WriteLine("Logger beendet...");
         }
     }
 }

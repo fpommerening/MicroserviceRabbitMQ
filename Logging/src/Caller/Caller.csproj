@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>FP.MsRmq.Logging.Caller</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Caller</PackageId>
+    <RootNamespace>FP.MsRmq.Logging.Caller</RootNamespace>
+  </PropertyGroup>
+
+</Project>
