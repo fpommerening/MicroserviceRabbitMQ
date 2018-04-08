@@ -13,5 +13,5 @@ LABEL maintainer "frank@pommerening-online.de"
 ENV REFRESHED_AT 2018-04-08
 
 WORKDIR /app/
-COPY --from=builder /app/out/Console/* ./
+COPY --from=builder /app/Console/out/* ./
 ENTRYPOINT ["dotnet", "FP.MsRmq.Logging.Console.dll"]
