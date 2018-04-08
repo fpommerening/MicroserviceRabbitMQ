@@ -1,7 +1,9 @@
 FROM microsoft/dotnet:2.0-sdk-jessie AS builder
 
-WORKDIR /app
-COPY Caller /app/
+WORKDIR /app/Console
+COPY Console /app/Console
+COPY Contracts /app/Contracts
+
 RUN dotnet restore Console.csproj
 RUN dotnet publish --configuration Release --output ./out
 
