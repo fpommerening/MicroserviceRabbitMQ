@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>FP.MsRmq.Cluster.Contracts</AssemblyName>
+    <RootNamespace>FP.MsRmq.Cluster.Contracts</RootNamespace>
+  </PropertyGroup>
+
+</Project>
