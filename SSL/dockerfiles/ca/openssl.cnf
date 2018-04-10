@@ -1,7 +1,7 @@
 [ ca ]
-default_ca = sparta_ca
+default_ca = msrmq_ca
 
-[ sparta_ca ]
+[ msrmq_ca ]
 dir = .
 certificate = $dir/cacert.pem
 database = $dir/index.txt
@@ -13,10 +13,10 @@ default_crl_days = 7
 default_days = 365
 default_md = sha256
 
-policy = sparta_ca_policy
+policy = msrmq_ca_policy
 x509_extensions = certificate_extensions
 
-[ sparta_ca_policy ]
+[ msrmq_ca_policy ]
 commonName = supplied
 stateOrProvinceName = optional
 countryName = optional

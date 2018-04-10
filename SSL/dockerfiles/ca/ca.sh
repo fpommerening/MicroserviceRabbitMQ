@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir /rabbitssl/ca
 cp /usr/local/bin/openssl.cnf /rabbitssl/ca
 cd /rabbitssl/ca/
 
