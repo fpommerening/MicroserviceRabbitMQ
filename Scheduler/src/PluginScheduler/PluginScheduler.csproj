@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>FP.MsRmq.PluginScheduler</RootNamespace>
+    <AssemblyName>FP.MsRmq.PluginScheduler</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyNetQ" Version="2.3.1" />
+  </ItemGroup>
+
+</Project>
