@@ -197,3 +197,5 @@ FakesAssemblies/
 /PicFlow/artifacts
 /PicFlow/tools
 /tmp
+
+*.idea

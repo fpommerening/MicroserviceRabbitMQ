@@ -1,7 +1,6 @@
-﻿namespace FP.MsRmq.Basics.TopicBasedRouting
+﻿namespace FP.MsRmq.Basics.TopicBasedRouting;
+
+public class MyMessage
 {
-    public class MyMessage
-    {
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
 }

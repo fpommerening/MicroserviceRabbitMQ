@@ -1,7 +1,6 @@
-﻿namespace FP.MsRmq.Basics.RequestResponse
+﻿namespace FP.MsRmq.Basics.RequestResponse;
+
+public class MyResponse
 {
-    public class MyResponse
-    {
-        public int Sum { get; set; }
-    }
+    public int Sum { get; set; }
 }

@@ -1,7 +1,6 @@
-﻿namespace FP.MsRmq.Basics.SendReceive
+﻿namespace FP.MsRmq.Basics.SendReceive;
+
+public class MyMessageB
 {
-    public class MyMessageB
-    {
-        public string Content { get; set; }
-    }
+    public string Content { get; set; }
 }

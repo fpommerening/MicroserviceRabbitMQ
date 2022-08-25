@@ -1,9 +1,8 @@
-﻿namespace FP.MsRmq.Basics.PublishSubscribe
-{
-    public class StromVertrag : IVertrag
-    {
-        public string Vertragsnummer { get; set; }
+﻿namespace FP.MsRmq.Basics.PublishSubscribe;
 
-        public string Zählernummer { get; set; }
-    }
+public class StromVertrag : IVertrag
+{
+    public string Vertragsnummer { get; set; }
+
+    public string Zählernummer { get; set; }
 }
