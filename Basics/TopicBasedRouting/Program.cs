@@ -4,7 +4,7 @@ using FP.MsRmq.Basics.TopicBasedRouting;
 IBus? myBus = null;
 try
 {
-    myBus = RabbitHutch.CreateBus("host=localhost");
+    myBus = RabbitHutch.CreateBus("host=rabbitmq.ddc-cloud.de");
     myBus.PubSub.Subscribe<MyMessage>("BlueLine", msg =>
         {
             Console.ForegroundColor = ConsoleColor.Blue;

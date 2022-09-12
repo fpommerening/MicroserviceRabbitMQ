@@ -1,9 +1,9 @@
 ﻿using EasyNetQ;
 using FP.MsRmq.Basics.PublishSubscribe;
 
-void PolymorphicSubscription(EasyNetQ.IBus myBus)
+void PolymorphicSubscription(IBus? myBus)
 {
-    myBus.PubSub.Subscribe<IVertrag>("VertragsSubstription", vertrag =>
+    myBus.PubSub.Subscribe<IVertrag>("VertragsSubscription", vertrag =>
     {
         Console.WriteLine("Vertrag {0} wurde abgeschlossen", vertrag.Vertragsnummer);
     });
@@ -20,8 +20,8 @@ void PolymorphicSubscription(EasyNetQ.IBus myBus)
 
 void SimpleSubscription(IBus myBus)
 {
-    myBus.PubSub.Subscribe<MyMessage>("MyMessageSubscription", msg => Console.WriteLine("Say hallo to {0}", msg.Name));
-    string input = string.Empty;
+    myBus.PubSub.Subscribe<MyMessage>("MyMessageSubscription", msg => Console.WriteLine("Say hallo to {0}", msg.Name), configuration => configuration.WithQueueType("quorum"));
+    var input = string.Empty;
     do
     {
         Console.WriteLine("Enter a name or nothing to leave");
@@ -32,16 +32,16 @@ void SimpleSubscription(IBus myBus)
             myBus.PubSub.Publish<MyMessage>(new MyMessage { Name = input });
 
         }
-        System.Threading.Thread.Sleep(2000);
+        Thread.Sleep(2000);
     } while (!string.IsNullOrEmpty(input));
 }
 
 
 
-IBus myBus = null;
+IBus? myBus = null;
 try
 {
-    myBus = RabbitHutch.CreateBus("host=localhost");
+    myBus = RabbitHutch.CreateBus("host=rabbitmq.ddc-cloud.de");
     //SimpleSubscription(myBus);
     PolymorphicSubscription(myBus);
 }

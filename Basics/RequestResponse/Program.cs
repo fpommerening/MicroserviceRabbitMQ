@@ -4,7 +4,7 @@ using FP.MsRmq.Basics.RequestResponse;
 IBus? myBus = null;
 try
 {
-    myBus = RabbitHutch.CreateBus("host=localhost");
+    myBus = RabbitHutch.CreateBus("host=rabbitmq.ddc-cloud.de");
 
     myBus.Rpc.Respond<MyRequest, MyResponse>(req =>
         new MyResponse { Sum = req.Number1 + req.Number2 });
